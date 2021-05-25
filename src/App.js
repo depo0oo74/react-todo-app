@@ -29,9 +29,7 @@ class App extends Component {
   }
 
   handleSubmit = e => {
-    if (this.state.name === '' || this.state.name === null || this.state.age === null || this.state.age === '' ) {
-      alert('Fields are required')
-    } else {
+    if (this.state.name && this.state.age) {
       let newItem = this.state.items
       newItem.push({
         id : Math.random() ,
@@ -43,6 +41,8 @@ class App extends Component {
         name : '' ,
         age : ''
       })
+    } else {
+      alert('Fields are required')
     }
     e.preventDefault()
   }
